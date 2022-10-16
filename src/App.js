@@ -1,5 +1,12 @@
 import { useState } from "react";
 
+const teamData = {
+  goalkeeper: 25,
+  defense: ["1-2", "1-2", "1-2"],
+  midfielders: ["1-2", "1-2", "1-2", "1-2"],
+  forward: ["1-2", "1-2"],
+};
+
 function App() {
   const [checkedItems, setCheckedItems] = useState([]);
 
@@ -25,30 +32,32 @@ function App() {
       <main className="flex flex-col gap-4 ">
         <h2>Tu equipo</h2>
         <div className="flex gap-4">
-          <div className=" flex-1 h-60">
+          <div className="flex-1 h-60">
             <ul className="bg-green-400 rounded flex flex-col items-center h-full justify-center gap-4">
-              <li className="bg-white rounded px-2 py-1">🐵 25%</li>
+              <li className="bg-white rounded px-2 py-1">
+                🐵 {teamData.goalkeeper}%
+              </li>
             </ul>
           </div>
-          <div className=" flex-1 h-60">
+          <div className="flex-1 h-60">
             <ul className="bg-green-400 rounded flex flex-col items-center h-full justify-center gap-4">
-              <li className="bg-white rounded px-2 py-1">🐮 1-2</li>
-              <li className="bg-white rounded px-2 py-1">🐮 1-2</li>
-              <li className="bg-white rounded px-2 py-1">🐮 1-2</li>
+              {teamData.defense.map((player) => (
+                <li className="bg-white rounded px-2 py-1">🐮 {player}</li>
+              ))}
             </ul>
           </div>
-          <div className=" flex-1 h-60">
+          <div className="flex-1 h-60">
             <ul className="bg-green-400 rounded flex flex-col items-center h-full justify-center gap-4">
-              <li className="bg-white rounded px-2 py-1">🐺 1-2</li>
-              <li className="bg-white rounded px-2 py-1">🐺 1-2</li>
-              <li className="bg-white rounded px-2 py-1">🐺 1-2</li>
-              <li className="bg-white rounded px-2 py-1">🐺 1-2</li>
+              {teamData.midfielders.map((player) => (
+                <li className="bg-white rounded px-2 py-1">🐺 {player}</li>
+              ))}
             </ul>
           </div>
-          <div className=" flex-1 h-60">
+          <div className="flex-1 h-60">
             <ul className="bg-green-400 rounded flex flex-col items-center h-full justify-center gap-4">
-              <li className="bg-white rounded px-2 py-1">🐯 1-2</li>
-              <li className="bg-white rounded px-2 py-1">🐯 1-2</li>
+              {teamData.forward.map((player) => (
+                <li className="bg-white rounded px-2 py-1">🐯 {player}</li>
+              ))}
             </ul>
           </div>
         </div>
