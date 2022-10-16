@@ -7,6 +7,12 @@ const teamData = {
   forward: ["1-2", "1-2"],
 };
 
+const shopData = {
+  defense: ["1-3", "2-2", "1-2 c/skill"],
+  midfielders: ["1-3", "2-2"],
+  forward: ["1-3", "2-2"],
+};
+
 function App() {
   const [checkedItems, setCheckedItems] = useState([]);
 
@@ -70,56 +76,38 @@ function App() {
           <div className="flex gap-4">
             <div className="flex-1">
               <ul className="flex flex-col gap-4">
-                <li className="border rounded px-2 py-1">
-                  <label className="flex justify-between cursor-pointer">
-                    <span>🐮 1-3</span>
-                    <input type="checkbox" name="items" value="🐮1" />
-                  </label>
-                </li>
-                <li className="border rounded px-2 py-1">
-                  <label className="flex justify-between cursor-pointer">
-                    <span>🐮 2-2</span>
-                    <input type="checkbox" name="items" value="🐮2" />
-                  </label>
-                </li>
-                <li className="border rounded px-2 py-1">
-                  <label className="flex justify-between cursor-pointer">
-                    <span>🐮 1-2 c/skill</span>
-                    <input type="checkbox" name="items" value="🐮3" />
-                  </label>
-                </li>
+                {shopData.defense.map((player) => (
+                  <li className="border rounded px-2 py-1">
+                    <label className="flex justify-between cursor-pointer">
+                      <span>🐮 {player}</span>
+                      <input type="checkbox" name="items" value="🐮1" />
+                    </label>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="flex-1">
               <ul className="flex flex-col gap-4">
-                <li className="border rounded px-2 py-1">
-                  <label className="flex justify-between cursor-pointer">
-                    <span>🐺 1-3</span>
-                    <input type="checkbox" name="items" value="🐺1" />
-                  </label>
-                </li>
-                <li className="border rounded px-2 py-1">
-                  <label className="flex justify-between cursor-pointer">
-                    <span>🐺 2-2</span>
-                    <input type="checkbox" name="items" value="🐺2" />
-                  </label>
-                </li>
+                {shopData.midfielders.map((player) => (
+                  <li className="border rounded px-2 py-1">
+                    <label className="flex justify-between cursor-pointer">
+                      <span>🐺 {player}</span>
+                      <input type="checkbox" name="items" value="🐺1" />
+                    </label>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="flex-1">
               <ul className="flex flex-col gap-4">
-                <li className="border rounded px-2 py-1">
-                  <label className="flex justify-between cursor-pointer">
-                    <span>🐯 1-3</span>
-                    <input type="checkbox" name="items" value="🐯1" />
-                  </label>
-                </li>
-                <li className="border rounded px-2 py-1">
-                  <label className="flex justify-between cursor-pointer">
-                    <span>🐯 2-2</span>
-                    <input type="checkbox" name="items" value="🐯2" />
-                  </label>
-                </li>
+                {shopData.forward.map((player) => (
+                  <li className="border rounded px-2 py-1">
+                    <label className="flex justify-between cursor-pointer">
+                      <span>🐯 {player}</span>
+                      <input type="checkbox" name="items" value="🐯1" />
+                    </label>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
