@@ -11,21 +11,21 @@ const Team = ({ team }) => {
       <div className="flex-1 h-60">
         <ul className="bg-green-400 rounded flex flex-col items-center h-full justify-center gap-4">
           {team.defense.map((player) => (
-            <TeamPlayer icon="🐮" player={team.goalkeeper + "%"} />
+            <TeamPlayer icon="🐮" player={player} />
           ))}
         </ul>
       </div>
       <div className="flex-1 h-60">
         <ul className="bg-green-400 rounded flex flex-col items-center h-full justify-center gap-4">
           {team.midfielders.map((player) => (
-            <TeamPlayer icon="🐺" player={team.goalkeeper + "%"} />
+            <TeamPlayer icon="🐺" player={player} />
           ))}
         </ul>
       </div>
       <div className="flex-1 h-60">
         <ul className="bg-green-400 rounded flex flex-col items-center h-full justify-center gap-4">
           {team.forward.map((player) => (
-            <TeamPlayer icon="🐯" player={team.goalkeeper + "%"} />
+            <TeamPlayer icon="🐯" player={player} />
           ))}
         </ul>
       </div>
