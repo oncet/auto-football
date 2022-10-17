@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Shop from "./components/Shop";
-import ShopItem from "./components/ShopItem";
 import Team from "./components/Team";
+import Shop from "./components/Shop";
 
 const teamData = {
   goalkeeper: 25,
@@ -25,14 +24,27 @@ function App() {
     const form = event.target.closest("form");
 
     setSelectedShopItems(
-      Array.from(form).filter(
-        (input) => input.name === "items" && input.checked === true
-      )
+      Array.from(form).filter((input) => input.checked === true)
     );
   };
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
+
+    const mappedShopItems = selectedShopItems.reduce(
+      (accumulatedItems, shopItem) => {
+        const newValue = !!accumulatedItems[shopItem.name]
+          ? accumulatedItems[shopItem.name].concat(shopItem.value)
+          : [shopItem.value];
+
+        accumulatedItems[shopItem.name] = newValue;
+
+        return accumulatedItems;
+      },
+      {}
+    );
+
+    console.log("mappedShopItems", mappedShopItems);
   };
 
   return (
@@ -41,7 +53,7 @@ function App() {
         <h1>Auto Football</h1>
       </header>
       <main className="flex flex-col gap-4 ">
-        <h2 className="">Tu equipo</h2>
+        <h2>Tu equipo</h2>
         <Team team={team} />
         <h2>Tienda</h2>
         <Shop
