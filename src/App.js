@@ -62,6 +62,11 @@ function App() {
           selectedShopItems={selectedShopItems}
           shopItems={shopItems}
         />
+        <div className="text-right">
+          <button className="font-bold bg-green-400 text-black text-lg rounded py-2 px-4">
+            Continuar &rarr;
+          </button>
+        </div>
       </main>
     </div>
   );

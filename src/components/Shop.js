@@ -35,24 +35,6 @@ const Shop = ({
           </ul>
         </div>
       </div>
-      <div className="text-right text-black">
-        <button
-          type="submit"
-          disabled={!selectedShopItems.length}
-          className="
-            bg-green-400
-            disabled:bg-gray-300
-            disabled:cursor-not-allowed
-            disabled:text-gray-600
-            font-bold
-            px-2
-            py-1
-            rounded
-          "
-        >
-          Comprar
-        </button>
-      </div>
     </form>
   );
 };
