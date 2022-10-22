@@ -19,6 +19,7 @@ function App() {
   const [team, setTeam] = useState(teamData);
   const [shopItems, setShopItems] = useState(shopData);
   const [selectedShopItems, setSelectedShopItems] = useState([]);
+  const [stage, setStage] = useState("shop");
 
   const handleOnChange = (event) => {
     const form = event.target.closest("form");
@@ -47,26 +48,44 @@ function App() {
     console.log("mappedShopItems", mappedShopItems);
   };
 
+  const handleOnContinue = () => {
+    console.log("Continue!");
+    setStage("match");
+  };
+
   return (
     <div className="container max-w-screen-md mx-auto flex flex-col h-screen gap-4 py-4 text-black dark:text-white">
       <header className="font-bold bg-green-400 px-2 py-1 rounded text-black">
         <h1>Auto Football</h1>
       </header>
       <main className="flex flex-col gap-4 ">
-        <h2>Tu equipo</h2>
+        <h2>Tu formación</h2>
         <Team team={team} />
-        <h2>Tienda</h2>
-        <Shop
-          handleOnChange={handleOnChange}
-          handleOnSubmit={handleOnSubmit}
-          selectedShopItems={selectedShopItems}
-          shopItems={shopItems}
-        />
-        <div className="text-right">
-          <button className="font-bold bg-green-400 text-black text-lg rounded py-2 px-4">
-            Continuar &rarr;
-          </button>
-        </div>
+        {stage === "shop" && (
+          <>
+            <h2>Armá tu equipo</h2>
+            <Shop
+              handleOnChange={handleOnChange}
+              handleOnSubmit={handleOnSubmit}
+              selectedShopItems={selectedShopItems}
+              shopItems={shopItems}
+            />
+            <div className="text-right">
+              <button
+                className="font-bold bg-green-400 text-black text-lg rounded py-2 px-4"
+                onClick={handleOnContinue}
+              >
+                Continuar &rarr;
+              </button>
+            </div>
+          </>
+        )}
+        {stage === "match" && (
+          <>
+            <h2>Formación rival</h2>
+            <Team team={team} />
+          </>
+        )}
       </main>
     </div>
   );
